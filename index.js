@@ -41,7 +41,8 @@ function makeEBReq(artistInput) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "seatgeek-seatgeekcom.p.rapidapi.com",
-            "x-rapidapi-key": "c29cad4333msh4a88ec98aa21c50p1de641jsn425b2f370f68"
+            "x-rapidapi-key": "c29cad4333msh4a88ec98aa21c50p1de641jsn425b2f370f68",
+            "Access-Control-Allow-Origin": "https://master.d1sqriqdlxy39w.amplifyapp.com"
         }
     }
     
