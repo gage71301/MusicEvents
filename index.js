@@ -35,7 +35,7 @@ function makeTDReq(artistInput) {
 function makeEBReq(artistInput) {
     
     $.ajax({
-        url: `https://cors-anywhere.herokuapp.com/https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=2BNFHN4AULKQXXVMSJZX`,
+        url: `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=2BNFHN4AULKQXXVMSJZX&redirect_uri=https://master.d1sqriqdlxy39w.amplifyapp.com/`,
      
         jsonp: "callback",
      
