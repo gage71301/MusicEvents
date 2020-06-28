@@ -16,20 +16,35 @@ function inputListen() {
 
 function makeTDReq(artistInput) {
 
-    $.ajax({
-        url: `https://tastedive.com/api/similar?q=${artistInput}&type=music&k=${key}`,
-     
-        jsonp: "callback",
-     
-        dataType: "jsonp",
-     
-        data: {
-        },
-     
-        success: function( response ) {
-            handleTDResponse(response); 
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://seatgeek-seatgeekcom.p.rapidapi.com/events",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "seatgeek-seatgeekcom.p.rapidapi.com",
+            "x-rapidapi-key": "c29cad4333msh4a88ec98aa21c50p1de641jsn425b2f370f68"
         }
+    }
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
     });
+
+   // $.ajax({
+   //     url: `https://tastedive.com/api/similar?q=${artistInput}&type=music&k=${key}`,
+   //  
+   //     jsonp: "callback",
+   //  
+   //     dataType: "jsonp",
+   //  
+   //     data: {
+    //    },
+     
+    //    success: function( response ) {
+    //        handleTDResponse(response); 
+    //    }
+   // });
 }
 
 function makeEBReq(artistInput) {
