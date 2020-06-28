@@ -16,6 +16,24 @@ function inputListen() {
 
 function makeTDReq(artistInput) {
 
+    $.ajax({
+        url: `https://tastedive.com/api/similar?q=${artistInput}&type=music&k=${key}`,
+     
+        jsonp: "callback",
+     
+        dataType: "jsonp",
+     
+        data: {
+        },
+     
+        success: function( response ) {
+            handleTDResponse(response); 
+        }
+    });
+}
+
+function makeEBReq(artistInput) {
+    
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -31,38 +49,20 @@ function makeTDReq(artistInput) {
         console.log(response);
     });
 
-   // $.ajax({
-   //     url: `https://tastedive.com/api/similar?q=${artistInput}&type=music&k=${key}`,
-   //  
-   //     jsonp: "callback",
-   //  
-   //     dataType: "jsonp",
-   //  
-   //     data: {
+    //$.ajax({
+    //    url: `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=2BNFHN4AULKQXXVMSJZX&redirect_uri=https://master.d1sqriqdlxy39w.amplifyapp.com/`,
+    // 
+    //    jsonp: "callback",
+     
+    //    dataType: "jsonp",
+     
+    //    data: {
     //    },
      
     //    success: function( response ) {
-    //        handleTDResponse(response); 
+    //        console.log(response); 
     //    }
-   // });
-}
-
-function makeEBReq(artistInput) {
-    
-    $.ajax({
-        url: `https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=2BNFHN4AULKQXXVMSJZX&redirect_uri=https://master.d1sqriqdlxy39w.amplifyapp.com/`,
-     
-        jsonp: "callback",
-     
-        dataType: "jsonp",
-     
-        data: {
-        },
-     
-        success: function( response ) {
-            console.log(response); 
-        }
-    });
+    //});
 }
 
 function handleTDResponse(response) {
